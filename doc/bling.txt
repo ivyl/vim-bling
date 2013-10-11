@@ -36,23 +36,23 @@ Overview:~
   |bling_color|...................Blink color.
 
 
-                                                              *'g:bling_time'*
+                                                 *'g:bling_time'* *bling_time*
 Use this options to change time of blink (in ms): >
   let g:bling_time = 25
 <
 
-                                                             *'g:bling_count'*
+                                               *'g:bling_count'* *bling_count*
 Use this option to change number of blinks each match: >
   let g:bling_count = 2
 <
 
 
-                                                             *'g:bling_color'*
+                                               *'g:bling_color'* *bling_color*
 Use this option to change color of the blink: >
   let g:bling_color = 'red'
 <
 
-                                                            *'g:bling_no_map'*
+                                             *'g:bling_no_map'* *bling_no_map*
   let g:bling_no_map = 1
 
 =============================================================================
@@ -60,14 +60,14 @@ Functions                                                   *bling-functions*
 
                                                           *'bling#highlight'*
 :call bling#highlight
-  Hilight current search using "/[|quote/|] and cursor position.
+  Hilight current search using "/ aka |quote/| and cursor position.
 
 
 =============================================================================
 Mappings                                                     *bling-mappings*
 
 
-By default |bling| hijacks * [|star|], |#|, |n| and |N|. You can suppress this
+By default |bling| hijacks * aka |star|, |#|, |n| and |N|. You can suppress this
 behaviour: >
   let g:bling_no_map = 1
 <
