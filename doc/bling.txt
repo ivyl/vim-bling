@@ -1,0 +1,79 @@
+*bling.txt* blink search result
+*bling* *vim-bling*
+
+=============================================================================
+#                                                                           #
+#            mmmmmm    mm         mmmmmm   mmm   mm     mmmm                #
+#            ##""""##  ##         ""##""   ###   ##   ##""""#               #
+#            ##    ##  ##           ##     ##"#  ##  ##                     #
+#            #######   ##           ##     ## ## ##  ##  mmmm               #
+#            ##    ##  ##           ##     ##  #m##  ##  ""##               #
+#            ##mmmm##  ##mmmmmm   mm##mm   ##   ###   ##mmm##               #
+#            """""""   """"""""   """"""   ""   """     """"                #
+#                                                                           #
+=============================================================================
+
+CONTENTS                                                     *bling-contents*
+
+   1. Intro......................................|bling-intro|
+   2. Options....................................|bling-options|
+   3. Functions..................................|bling-functions|
+   4. Mappings...................................|bling-mappings|
+
+=============================================================================
+INTRO                                                           *bling-intro*
+
+Bling hilight search result after jump (i.e. when pressing *, #, n, or N) to
+grab your attention. No more wondering which selected result is current one.
+
+=============================================================================
+OPTIONS                                                       *bling-options*
+
+Overview:~
+
+  |bling_time|....................Time each blink takes.
+  |bling_count|...................Number of times search result should blink.
+  |bling_color|...................Blink color.
+
+
+                                                              *'g:bling_time'*
+Use this options to change time of blink (in ms): >
+  let g:bling_time = 25
+<
+
+                                                             *'g:bling_count'*
+Use this option to change number of blinks each match: >
+  let g:bling_count = 2
+<
+
+
+                                                             *'g:bling_color'*
+Use this option to change color of the blink: >
+  let g:bling_color = 'red'
+<
+
+                                                            *'g:bling_no_map'*
+  let g:bling_no_map = 1
+
+=============================================================================
+Functions                                                   *bling-functions*
+
+                                                          *'bling#highlight'*
+:call bling#highlight
+  Hilight current search using "/[|quote/|] and cursor position.
+
+
+=============================================================================
+Mappings                                                     *bling-mappings*
+
+
+By default |bling| hijacks * [|star|], |#|, |n| and |N|. You can suppress this
+behaviour: >
+  let g:bling_no_map = 1
+<
+Your own mappings should look somewhat like that: >
+  noremap <silent> n n:call bling#hlight()<CR>
+<
+Example: adding centering (|zz|): >
+  noremap <silent> n nzz:call bling#hlight()<CR>
+<
