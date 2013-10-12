@@ -13,8 +13,13 @@ function! bling#hlight()
 
   while  blink_count > 0
     let blink_count -= 1
+    let pattern = '\%'.pos[1].'l\%'.pos[2].'v'.param
 
-    let ring = matchadd('BlingHilight', '\%'.pos[1].'l\%'.pos[2].'v'.param)
+    if &ignorecase == 1 || &smartcase == 1
+      let pattern = pattern.'\c'
+    endif
+
+    let ring = matchadd('BlingHilight', pattern)
     redraw
 
     exec l:sleep_command
