@@ -2,7 +2,11 @@ if !exists('g:bling_time') | let g:bling_time = 25 | en
 if !exists('g:bling_count') | let g:bling_count = 2 | en
 if !exists('g:bling_color') | let g:bling_color = 'red' | en
 
-exec 'highlight BlingHilight ctermbg='.g:bling_color.' ctermfg='.g:bling_color
+exec 'highlight BlingHilight'
+      \ .' ctermbg='.g:bling_color
+      \ .' ctermfg='.g:bling_color
+      \ .' guibg='  .g:bling_color
+      \ .' guifg='  .g:bling_color
 
 function! bling#hlight()
   let blink_count = g:bling_count
