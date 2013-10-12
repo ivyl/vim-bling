@@ -58,8 +58,8 @@ Use this option to change color of the blink: >
 =============================================================================
 Functions                                                   *bling-functions*
 
-                                                          *'bling#highlight'*
-:call bling#highlight
+                                                          *'BlingHighight'*
+:call BlingHighight
   Hilight current search using "/ aka |quote/| and cursor position.
 
 
@@ -72,8 +72,8 @@ behaviour: >
   let g:bling_no_map = 1
 <
 Your own mappings should look somewhat like that: >
-  noremap <silent> n n:call bling#hlight()<CR>
+  noremap <silent> n n:call BlingHighight()<CR>
 <
 Example: adding centering (|zz|): >
-  noremap <silent> n nzz:call bling#hlight()<CR>
+  noremap <silent> n nzz:call BlingHighight()<CR>
 <

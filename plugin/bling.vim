@@ -8,7 +8,7 @@ exec 'highlight BlingHilight'
       \ .' guibg='  .g:bling_color
       \ .' guifg='  .g:bling_color
 
-function! bling#hlight()
+function! BlingHighight()
   let blink_count = g:bling_count
   let sleep_command = 'sleep ' . g:bling_time . 'ms'
 
@@ -38,8 +38,8 @@ function! bling#hlight()
 endfunction
 
 if !exists('g:bling_no_map')
-  noremap <silent> n n:call bling#hlight()<CR>
-  noremap <silent> N N:call bling#hlight()<CR>
-  noremap <silent> * *:call bling#hlight()<CR>
-  noremap <silent> # #:call bling#hlight()<CR>
+  noremap <silent> n n:call BlingHighight()<CR>
+  noremap <silent> N N:call BlingHighight()<CR>
+  noremap <silent> * *:call BlingHighight()<CR>
+  noremap <silent> # #:call BlingHighight()<CR>
 endif
