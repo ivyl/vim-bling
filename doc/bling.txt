@@ -75,5 +75,5 @@ Your own mappings should look somewhat like that: >
   noremap <silent> n n:call BlingHighight()<CR>
 <
 Example: adding centering (|zz|): >
-  noremap <silent> n nzz:call BlingHighight()<CR>
+  nnoremap <silent> n nzz:call BlingHighight()<CR>
 <

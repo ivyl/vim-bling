@@ -38,8 +38,8 @@ function! BlingHighight()
 endfunction
 
 if !exists('g:bling_no_map')
-  noremap <silent> n n:call BlingHighight()<CR>
-  noremap <silent> N N:call BlingHighight()<CR>
-  noremap <silent> * *:call BlingHighight()<CR>
-  noremap <silent> # #:call BlingHighight()<CR>
+  nnoremap <silent> n n:call BlingHighight()<CR>
+  nnoremap <silent> N N:call BlingHighight()<CR>
+  nnoremap <silent> * *:call BlingHighight()<CR>
+  nnoremap <silent> # #:call BlingHighight()<CR>
 endif
