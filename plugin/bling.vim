@@ -1,4 +1,4 @@
-if !exists('g:bling_time') | let g:bling_time = 25 | en
+if !exists('g:bling_time') | let g:bling_time = 35 | en
 if !exists('g:bling_count') | let g:bling_count = 2 | en
 if !exists('g:bling_color') | let g:bling_color = 'red' | en
 
@@ -17,7 +17,7 @@ function! BlingHighight()
 
   while  blink_count > 0
     let blink_count -= 1
-    let pattern = '\%'.pos[1].'l\%'.pos[2].'v'.param
+    let pattern = '\%'.pos[1].'l\%'.pos[2].'c'.param
 
     if &ignorecase == 1 || &smartcase == 1
       let pattern = pattern.'\c'
