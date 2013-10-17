@@ -53,7 +53,11 @@ Use this option to change color of the blink: >
 <
 
                                              *'g:bling_no_map'* *bling_no_map*
+Use this option to exclude default mapping: >
   let g:bling_no_map = 1
+<
+
+More on the topic: |bling-mappings|.
 
 =============================================================================
 Functions                                                   *bling-functions*
@@ -71,9 +75,16 @@ By default |bling| hijacks * aka |star|, |#|, |n| and |N|. You can suppress this
 behaviour: >
   let g:bling_no_map = 1
 <
+
 Your own mappings should look somewhat like that: >
-  noremap <silent> n n:call BlingHighight()<CR>
+  noremap <silent> n nzv:call BlingHighight()<CR>
 <
+
+Note: by default |n| and other search commands open folds. When they happen
+through mappings, opening does not happen, hence |zv| is included in default
+mappings to ensure correct behavior. You should include it in your custom ones
+too.
+
 Example: adding centering (|zz|): >
-  nnoremap <silent> n nzz:call BlingHighight()<CR>
+  nnoremap <silent> n nzvzz:call BlingHighight()<CR>
 <
