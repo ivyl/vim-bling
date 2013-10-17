@@ -15,13 +15,14 @@ function! BlingHighight()
   let param = getreg('/')
   let pos = getpos('.')
 
+  let pattern = '\%'.pos[1].'l\%'.pos[2].'c'.param
+
+  if &ignorecase == 1 || &smartcase == 1
+    let pattern = pattern.'\c'
+  endif
+
   while  blink_count > 0
     let blink_count -= 1
-    let pattern = '\%'.pos[1].'l\%'.pos[2].'c'.param
-
-    if &ignorecase == 1 || &smartcase == 1
-      let pattern = pattern.'\c'
-    endif
 
     let ring = matchadd('BlingHilight', pattern)
     redraw
