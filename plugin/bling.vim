@@ -1,6 +1,10 @@
-if !exists('g:bling_time') | let g:bling_time = 35 | en
-if !exists('g:bling_count') | let g:bling_count = 2 | en
-if !exists('g:bling_color') | let g:bling_color = 'red' | en
+if !exists('g:bling_no_expr') | let g:bling_no_expr = 0   | en
+if !exists('g:bling_no_map')  | let g:bling_no_map = 0    | en
+
+if !exists('g:bling_count')   | let g:bling_count = 2     | en
+if !exists('g:bling_time')    | let g:bling_time = 35     | en
+
+if !exists('g:bling_color')   | let g:bling_color = 'red' | en
 
 exec 'highlight BlingHilight'
       \ .' ctermbg='.g:bling_color
@@ -38,9 +42,22 @@ function! BlingHighight()
 
 endfunction
 
-if !exists('g:bling_no_map')
+function! BlingExpressionHighlight()
+  let cmd_type = getcmdtype()
+  if cmd_type == '/' || cmd_type == '?'
+    return "\<CR>:call BlingHighight()\<CR>"
+  endif
+  return "\<CR>"
+endfunction
+
+
+if !g:bling_no_map
   nnoremap <silent> n nzv:call BlingHighight()<CR>
   nnoremap <silent> N Nzv:call BlingHighight()<CR>
   nnoremap <silent> * *zv:call BlingHighight()<CR>
   nnoremap <silent> # #zv:call BlingHighight()<CR>
+
+  if !g:bling_no_expr
+    cnoremap <silent> <expr> <enter> BlingExpressionHighlight()
+  endif
 endif

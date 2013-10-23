@@ -19,6 +19,7 @@ CONTENTS                                                     *bling-contents*
    2. Options....................................|bling-options|
    3. Functions..................................|bling-functions|
    4. Mappings...................................|bling-mappings|
+   4. Credits....................................|bling-credits|
 
 =============================================================================
 INTRO                                                           *bling-intro*
@@ -52,6 +53,11 @@ Use this option to change color of the blink: >
   let g:bling_color = 'red'
 <
 
+                                           *'g:bling_no_expr'* *bling_no_expr*
+Use this option to exclude hooking into '/' and '?' searches: >
+  let g:bling_no_expr = 1
+<
+
                                              *'g:bling_no_map'* *bling_no_map*
 Use this option to exclude default mapping: >
   let g:bling_no_map = 1
@@ -71,10 +77,8 @@ Functions                                                   *bling-functions*
 Mappings                                                     *bling-mappings*
 
 
-By default |bling| hijacks * aka |star|, |#|, |n| and |N|. You can suppress this
-behaviour: >
-  let g:bling_no_map = 1
-<
+By default |bling| hijacks * aka |star|, |#|, |n| and |N|. You can find how to
+suppres this behaviour under |bling_no_map|.
 
 Your own mappings should look somewhat like that: >
   noremap <silent> n nzv:call BlingHighight()<CR>
@@ -88,3 +92,20 @@ too.
 Example: adding centering (|zz|): >
   nnoremap <silent> n nzvzz:call BlingHighight()<CR>
 <
+
+Bling also hooks into command mode to bling after first match when searching
+with |?| or |/|: >
+    cnoremap <silent> <expr> <enter> BlingExpressionHighlight()
+<
+
+To supress this look at |bling_no_expr|.
+
+
+=============================================================================
+Credits                                                       *bling-credits*
+
+Big thanks to everyone who contributed, especially:
+
+Randy Morris for https://twitter.com/randymorris_/status/389739816419467264
+Aziz Light   for testing and live discussion on issues
+Rob Hoelz    for fixing fold opening
