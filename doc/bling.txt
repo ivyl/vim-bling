@@ -81,16 +81,11 @@ By default |bling| hijacks * aka |star|, |#|, |n| and |N|. You can find how to
 suppres this behaviour under |bling_no_map|.
 
 Your own mappings should look somewhat like that: >
-  noremap <silent> n nzv:call BlingHighight()<CR>
+  noremap <silent> n n:call BlingHighight()<CR>
 <
 
-Note: by default |n| and other search commands open folds. When they happen
-through mappings, opening does not happen, hence |zv| is included in default
-mappings to ensure correct behavior. You should include it in your custom ones
-too.
-
 Example: adding centering (|zz|): >
-  nnoremap <silent> n nzvzz:call BlingHighight()<CR>
+  nnoremap <silent> n nzz:call BlingHighight()<CR>
 <
 
 Bling also hooks into command mode to bling after first match when searching

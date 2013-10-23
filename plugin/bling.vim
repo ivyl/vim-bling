@@ -25,6 +25,9 @@ function! BlingHighight()
     let pattern = pattern.'\c'
   endif
 
+  " open folds
+  normal zv
+
   while  blink_count > 0
     let blink_count -= 1
 
@@ -52,10 +55,10 @@ endfunction
 
 
 if !g:bling_no_map
-  nnoremap <silent> n nzv:call BlingHighight()<CR>
-  nnoremap <silent> N Nzv:call BlingHighight()<CR>
-  nnoremap <silent> * *zv:call BlingHighight()<CR>
-  nnoremap <silent> # #zv:call BlingHighight()<CR>
+  nnoremap <silent> n n:call BlingHighight()<CR>
+  nnoremap <silent> N N:call BlingHighight()<CR>
+  nnoremap <silent> * *:call BlingHighight()<CR>
+  nnoremap <silent> # #:call BlingHighight()<CR>
 
   if !g:bling_no_expr
     cnoremap <silent> <expr> <enter> BlingExpressionHighlight()
