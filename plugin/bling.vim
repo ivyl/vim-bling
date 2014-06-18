@@ -19,7 +19,12 @@ function! BlingHighight()
   let param = getreg('/')
   let pos = getpos('.')
 
-  let pattern = '\%'.pos[1].'l\%'.pos[2].'c\%('.param.'\)'
+  let pattern = '\%'.pos[1].'l\%'.pos[2].'c\%('.param
+  if match(param, '^\\v') == 0
+    let pattern = pattern.')'
+  else
+    let pattern = pattern.'\)'
+  endif
 
   if &ignorecase == 1 || &smartcase == 1
     let pattern = pattern.'\c'
