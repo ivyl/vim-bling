@@ -72,6 +72,17 @@ Functions                                                   *bling-functions*
 :call BlingHighight
   Hilight current search using "/ aka |quote/| and cursor position.
 
+                                                           *'BlingDisable'*
+:call BlingDisable
+  Disables blinking. All mappings are intact. BlingHighight just returns
+  immediately.
+                                                            *'BlingEnable'*
+:call BlingEnable
+  Enables blinking. It's on by default. See |'BlingDisable'|.
+
+                                                            *'BlingToggle'*
+:call BlingToggle
+  Toggles blinking. See |'BlingDisable'|.
 
 =============================================================================
 Mappings                                                     *bling-mappings*

@@ -1,10 +1,12 @@
-if !exists('g:bling_no_expr') | let g:bling_no_expr = 0   | en
-if !exists('g:bling_no_map')  | let g:bling_no_map = 0    | en
+if !exists('g:bling_no_expr')   | let g:bling_no_expr  = 0  | en
+if !exists('g:bling_no_map')    | let g:bling_no_map   = 0  | en
 
 if !exists('g:bling_count')   | let g:bling_count = 2     | en
-if !exists('g:bling_time')    | let g:bling_time = 35     | en
+if !exists('g:bling_time')    | let g:bling_time  = 35    | en
 
 if !exists('g:bling_color')   | let g:bling_color = 'red' | en
+
+let s:bling_disabled = 0
 
 exec 'highlight BlingHilight'
       \ .' ctermbg='.g:bling_color
@@ -12,7 +14,29 @@ exec 'highlight BlingHilight'
       \ .' guibg='  .g:bling_color
       \ .' guifg='  .g:bling_color
 
+
+function! BlingDisable()
+    let s:bling_disabled=1
+endfunction
+
+function! BlingEnable()
+    let s:bling_disabled=0
+endfunction
+
+function! BlingToggle()
+  if s:bling_disabled
+    call BlingEnable()
+  else
+    call BlingDisable()
+  endif
+endfunction
+
+
 function! BlingHighight()
+  if s:bling_disabled
+    return
+  endif
+
   let blink_count = g:bling_count
   let sleep_command = 'sleep ' . g:bling_time . 'ms'
 
