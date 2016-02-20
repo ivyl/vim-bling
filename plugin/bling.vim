@@ -4,16 +4,22 @@ if !exists('g:bling_no_map')    | let g:bling_no_map   = 0  | en
 if !exists('g:bling_count')   | let g:bling_count = 2     | en
 if !exists('g:bling_time')    | let g:bling_time  = 35    | en
 
-if !exists('g:bling_color')   | let g:bling_color = 'red' | en
+if !exists('g:bling_color_fg')   | let g:bling_color_fg = 'red' | en
+if !exists('g:bling_color_bg')   | let g:bling_color_bg = 'black' | en
+if !exists('g:bling_color_gui_fg')   | let g:bling_color_gui_fg = 'red' | en
+if !exists('g:bling_color_gui_bg')   | let g:bling_color_gui_bg = 'black' | en
+if !exists('g:bling_color_cterm')   | let g:bling_color_cterm = 'reverse' | en
+if !exists('g:bling_color_term')   | let g:bling_color_term = 'reverse' | en
 
 let s:bling_disabled = 0
 
 exec 'highlight BlingHilight'
-      \ .' ctermbg='.g:bling_color
-      \ .' ctermfg='.g:bling_color
-      \ .' guibg='  .g:bling_color
-      \ .' guifg='  .g:bling_color
-
+      \ .' ctermbg='.g:bling_color_bg
+      \ .' ctermfg='.g:bling_color_fg
+      \ .' guibg='  .g:bling_color_gui_bg
+      \ .' guifg='  .g:bling_color_gui_fg
+      \ .' cterm='.g:bling_color_cterm
+      \ .' term='.g:bling_color_term
 
 function! BlingDisable()
     let s:bling_disabled=1
