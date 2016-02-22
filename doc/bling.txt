@@ -34,7 +34,12 @@ Overview:~
 
   |bling_time|....................Time each blink takes.
   |bling_count|...................Number of times search result should blink.
-  |bling_color|...................Blink color.
+  |bling_color_fg|................Blink foreground color.
+  |bling_color_bg|................Blink background color.
+  |bling_color_gui_fg|............Blink foreground gui color.
+  |bling_color_gui_bg|............Blink background gui color.
+  |bling_color_term|..............Blink term color.
+  |bling_color_cterm|.............Blink cterm color.
 
 
                                                  *'g:bling_time'* *bling_time*
@@ -48,9 +53,34 @@ Use this option to change number of blinks each match: >
 <
 
 
-                                               *'g:bling_color'* *bling_color*
-Use this option to change color of the blink: >
-  let g:bling_color = 'red'
+                                               *'g:bling_color_fg'* *bling_color_fg*
+Use this option to change foreground color of the blink: >
+  let g:bling_color_fg = 'red'
+<
+
+                                               *'g:bling_color_bg'* *bling_color_bg*
+Use this option to change background color of the blink: >
+  let g:bling_color_bg = 'black'
+<
+
+                                               *'g:bling_color_gui_fg'* *bling_color_gui_fg*
+Use this option to change forground color of the blink in gui: >
+let g:bling_color_gui_fg = 'red'
+<
+
+                                               *'g:bling_color_gui_fg'* *bling_color_gui_bg*
+Use this option to change background color of the blink in gui: >
+let g:bling_color_gui_bg = 'black'
+<
+
+                                               *'g:bling_color_cterm'* *bling_color_cterm*
+Use this option to change cterm color of the blink: >
+let g:bling_color_cterm = 'reverse'
+<
+
+                                               *'g:bling_color_term'* *bling_color_term*
+Use this option to change term color of the blink: >
+let g:bling_color_term = 'reverse'
 <
 
                                            *'g:bling_no_expr'* *bling_no_expr*
