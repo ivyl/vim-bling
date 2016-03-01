@@ -68,7 +68,7 @@ Use this option to change forground color of the blink in gui: >
 let g:bling_color_gui_fg = 'red'
 <
 
-                                               *'g:bling_color_gui_fg'* *bling_color_gui_bg*
+                                               *'g:bling_color_gui_bg'* *bling_color_gui_bg*
 Use this option to change background color of the blink in gui: >
 let g:bling_color_gui_bg = 'black'
 <
