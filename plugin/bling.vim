@@ -50,7 +50,7 @@ function! BlingHighight()
   let pos = getpos('.')
 
   let pattern = '\%'.pos[1].'l\%'.pos[2].'c\%('.param
-  if match(param, '^\\v') == 0
+  if match(param, '/\c^\\v') == 0
     let pattern = pattern.')'
   else
     let pattern = pattern.'\)'
