@@ -77,7 +77,11 @@ endfunction
 
 function! BlingExpressionHighlight()
   let cmd_type = getcmdtype()
-  if cmd_type == '/' || cmd_type == '?'
+  let current_mode = mode()
+  let in_visual_mode = current_mode == "v" ||
+                     \ current_mode == "V" ||
+                     \ current_mode == ""
+  if (cmd_type == '/' || cmd_type == '?') && !in_visual_mode
     return "\<CR>:call BlingHighight()\<CR>"
   endif
   return "\<CR>"
