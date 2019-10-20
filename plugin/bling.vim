@@ -47,18 +47,13 @@ function! BlingHighight()
   let sleep_command = 'sleep ' . g:bling_time . 'ms'
 
   let param = getreg('/')
-  let pos = getpos('.')
 
-  let pattern = '\%'.pos[1].'l\%'.pos[2].'c\%('.param
-  if match(param, '/\c^\\v') == 0
-    let pattern = pattern.')'
-  else
-    let pattern = pattern.'\)'
-  endif
-
-  if &ignorecase == 1 || &smartcase == 1
-    let pattern = pattern.'\c'
-  endif
+  " find the start and end columns of the current match so that we can
+  " use matchaddpos below
+  let match_start_pos = getcurpos()
+  call search(param, 'ceW')
+  let match_end_pos = getcurpos()
+  call cursor(match_start_pos[1:])
 
   " open folds
   normal zv
@@ -66,7 +61,7 @@ function! BlingHighight()
   while  blink_count > 0
     let blink_count -= 1
 
-    let ring = matchadd('BlingHilight', pattern)
+    let ring = matchaddpos('BlingHilight', [ [ match_start_pos[1], match_start_pos[2], match_end_pos[2] - match_start_pos[2] + 1 ] ])
     redraw
 
     exec l:sleep_command
