@@ -39,6 +39,9 @@ endfunction
 
 
 function! BlingHighight()
+  if reg_executing() != ''
+    return
+  endif
   if s:bling_disabled
     return
   endif
